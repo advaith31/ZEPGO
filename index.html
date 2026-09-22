@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111513" />
+    <title>ZepGO | Drive with confidence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <section class="auth-screen" id="login-screen" aria-labelledby="login-title">
+        <div class="auth-brand"><span class="brand-mark">z</span><span>ZepGO</span></div>
+        <div class="auth-layout">
+          <div class="auth-copy">
+            <p class="eyebrow">EV journey intelligence</p>
+            <h1>Know your range.<br /><em>Drive with confidence.</em></h1>
+            <p class="auth-description">Plan safer journeys with a clear view of your battery, route, charging options and real-world conditions.</p>
+            <div class="auth-route-preview" aria-label="ZepGO route preview">
+              <div class="preview-topline"><span>Next journey</span><strong>Hyderabad → Bengaluru</strong></div>
+              <div class="preview-map"><div class="preview-road"></div><span class="preview-pin start">●</span><span class="preview-pin charge">⚡</span><span class="preview-pin end">●</span><span class="preview-label start-label">You</span><span class="preview-label charge-label">GreenVolt</span><span class="preview-label end-label">Bengaluru</span></div>
+              <div class="preview-bottomline"><span>105 km</span><span><i></i> Safe to continue</span><span>68% battery</span></div>
+            </div>
+          </div>
+          <div class="login-panel">
+            <div class="login-heading"><p class="eyebrow">Welcome back</p><h2 id="login-title">Sign in to ZepGO</h2><p>Pick up where you left off.</p></div>
+            <form id="login-form">
+              <label>Email address<input type="email" placeholder="you@example.com" autocomplete="email" required /></label>
+              <label>Password<div class="password-field"><input id="password-input" type="password" placeholder="Enter your password" autocomplete="current-password" required /><button type="button" id="toggle-password" aria-label="Show password">Show</button></div></label>
+              <div class="login-options"><label class="remember"><input type="checkbox" /> <span>Keep me signed in</span></label><button type="button" class="forgot-button">Forgot password?</button></div>
+              <button class="primary-button login-button" type="submit">Sign in <span>→</span></button>
+            </form>
+            <div class="login-divider"><span>or</span></div>
+            <button class="demo-button" id="demo-button">Explore the demo <span>↗</span></button>
+            <p class="signup-copy">New to ZepGO? <button type="button" class="signup-button">Create an account</button></p>
+            <p class="legal-copy">By continuing, you agree to ZepGO's Terms and Privacy Policy.</p>
+          </div>
+        </div>
+      </section>
+      <header class="topbar">
+        <a class="brand" href="#dashboard" aria-label="ZepGO home"><span class="brand-mark">z</span><span>ZepGO</span></a>
+        <nav class="primary-nav" aria-label="Primary navigation">
+          <button class="nav-item active" data-view="dashboard">Dashboard</button>
+          <button class="nav-item" data-view="planner">Plan journey</button>
+          <button class="nav-item" data-view="charging">Charging</button>
+          <button class="nav-item" data-view="history">History</button>
+        </nav>
+        <div class="topbar-actions">
+          <button class="battery-pill" aria-label="Battery status"><span class="battery-dot"></span><span>68%</span><span class="battery-range">142 km</span></button>
+          <button class="avatar" aria-label="Open profile">AR</button>
+        </div>
+      </header>
+
+      <main id="app" class="main-content">
+        <section id="dashboard-view" class="view active-view" aria-labelledby="journey-title">
+          <div class="page-heading">
+            <div><p class="eyebrow">Tuesday, 22 September · Hyderabad</p><h1 id="journey-title">Your journey</h1></div>
+            <button class="outline-button" data-view="planner"><span class="plus">+</span> Plan a journey</button>
+          </div>
+
+          <section class="journey-overview">
+            <div class="route-head">
+              <div><span class="route-label">Current trip</span><h2>Hyderabad <span class="arrow">→</span> Bengaluru</h2></div>
+              <div class="route-meta"><strong>105 km</strong><span>1 hr 52 min · via NH 44</span></div>
+            </div>
+            <div class="status-banner moderate"><span class="status-icon">!</span><div><span class="status-kicker">Journey status</span><strong>SAFE TO CONTINUE</strong><p>Your destination is reachable, but your arrival margin is lower than recommended.</p></div><span class="status-chip">Moderate risk</span></div>
+            <div class="journey-layout">
+              <div class="route-visual" aria-label="Route from current location to Bengaluru via GreenVolt Station">
+                <div class="route-legend"><span><i class="legend-dot current"></i> You are here</span><span><i class="legend-dot recommended"></i> Recommended</span><span><i class="legend-dot destination"></i> Destination</span></div>
+                <div class="route-map">
+                  <div class="map-grid"></div><div class="route-line"></div>
+                  <div class="map-marker current-marker"><span></span><label>Your location</label></div>
+                  <div class="map-marker charger-marker"><span>⚡</span><label>GreenVolt</label></div>
+                  <div class="map-marker backup-marker"><span></span><label>Backup</label></div>
+                  <div class="map-marker destination-marker"><span></span><label>Bengaluru</label></div>
+                  <div class="map-road road-one">NH 44</div><div class="map-road road-two">SH 9</div>
+                </div>
+                <div class="map-controls"><button aria-label="Zoom in">+</button><button aria-label="Zoom out">−</button><button class="recenter" aria-label="Recenter map">◎</button></div>
+              </div>
+              <div class="journey-side">
+                <div class="battery-card"><div class="card-title-row"><h3>Battery</h3><span class="live-label"><i></i> Live</span></div><div class="battery-main"><strong>68%</strong><span>142 km<br /><small>estimated range</small></span></div><div class="battery-track"><span style="width:68%"></span></div><div class="battery-stats"><span>Expected arrival <b>37 km</b></span><span>Safety reserve <b>25 km</b></span></div></div>
+                <div class="risk-card"><div class="card-title-row"><h3>Journey risk</h3><span class="risk-level">MODERATE</span></div><p>Your margin is workable, but conditions could reduce it on the way.</p><div class="risk-reasons"><span><i>↗</i> Heavy traffic</span><span><i>◒</i> Rain expected</span><span><i>!</i> Limited backup charging</span></div><button class="text-button" data-view="assistant">Ask ZepGO <span>→</span></button></div>
+              </div>
+            </div>
+          </section>
+
+          <div class="decision-grid">
+            <section class="recommendation panel"><div class="panel-heading"><div><span class="section-kicker">Recommended action</span><h2>Charge at GreenVolt Station</h2></div><span class="recommendation-badge">Best fit</span></div><div class="charger-detail"><div class="charger-icon">⚡</div><div><strong>GreenVolt Station</strong><span>12.4 km away · 8 min route deviation</span><div class="charger-specs"><span>150 kW fast charger</span><span class="available"><i></i> 4 available</span></div></div></div><p class="reason"><b>Why this recommendation?</b> Your predicted arrival battery is below the recommended reserve. GreenVolt has enough capacity and a feasible backup station nearby.</p><button class="primary-button" id="navigate-button">Start navigation <span>↗</span></button></section>
+            <section class="stations panel"><div class="panel-heading"><div><span class="section-kicker">Nearby on route</span><h2>Charging stations</h2></div><button class="text-button">View all <span>→</span></button></div><div class="station-list"><button class="station-row selected"><span class="station-marker">⚡</span><span class="station-name"><strong>GreenVolt Station</strong><small>12.4 km · 8 min detour</small></span><span class="station-power"><b>150 kW</b><small>4 chargers</small></span><span class="recommended-label">Recommended</span></button><button class="station-row"><span class="station-marker muted">↗</span><span class="station-name"><strong>NextCharge</strong><small>18.2 km · 4 min detour</small></span><span class="station-power"><b>60 kW</b><small>2 chargers</small></span></button><button class="station-row unavailable"><span class="station-marker muted">↗</span><span class="station-name"><strong>PowerHub</strong><small>23.7 km · on route</small></span><span class="station-power"><b>120 kW</b><small>Unavailable</small></span></button></div></section>
+          </div>
+        </section>
+
+        <section id="planner-view" class="view" aria-labelledby="planner-title"><div class="page-heading"><div><p class="eyebrow">Journey planner</p><h1 id="planner-title">Plan a safer journey.</h1><p class="subheading">Analyze battery, route and charging conditions before you leave.</p></div></div><div class="planner-layout"><form class="planner-form" id="planner-form"><div class="step"><span class="step-number">1</span><div class="step-content"><span class="section-kicker">Route</span><h2>Where are you going?</h2><label>Current location<input value="Hyderabad, Telangana" /></label><label>Destination<input value="Bengaluru, Karnataka" /></label></div></div><div class="step"><span class="step-number">2</span><div class="step-content"><span class="section-kicker">Vehicle</span><h2>Tell us about your EV</h2><div class="input-row"><label>Battery level<div class="input-with-unit"><input value="68" type="number" /><span>%</span></div></label><label>Vehicle efficiency<div class="input-with-unit"><input value="16.4" type="number" /><span>kWh/100km</span></div></label></div></div></div><div class="step"><span class="step-number">3</span><div class="step-content"><span class="section-kicker">Conditions</span><h2>What should we account for?</h2><div class="condition-grid"><label><span>Weather</span><select><option>Rain expected</option><option>Clear</option></select></label><label><span>Traffic</span><select><option>Heavy</option><option>Moderate</option></select></label><label><span>Road condition</span><select><option>Good</option><option>Mixed</option></select></label></div><button type="button" class="advanced">＋ Advanced conditions</button></div></div><button class="primary-button analyze-button" type="submit">Analyze journey <span>→</span></button></form><aside class="planner-aside"><div class="aside-route"><span class="section-kicker">Preview</span><h3>Hyderabad <span>→</span> Bengaluru</h3><div class="mini-route"><span></span><i></i><b></b></div><div class="preview-facts"><span>Distance <b>105 km</b></span><span>Estimated time <b>1 hr 52 min</b></span></div></div><div class="aside-note"><span class="note-icon">✓</span><div><strong>We'll check your margin</strong><p>Battery, traffic, weather and charging availability are assessed together.</p></div></div></aside></div></section>
+
+        <section id="charging-view" class="view" aria-labelledby="charging-title"><div class="page-heading"><div><p class="eyebrow">Charging network</p><h1 id="charging-title">Charge with confidence.</h1><p class="subheading">Reliable stations around your route, checked for availability.</p></div><button class="outline-button">⌖ Near my route</button></div><div class="charging-layout"><div class="charging-map route-visual"><div class="map-grid"></div><div class="route-line"></div><div class="map-marker current-marker"><span></span><label>You</label></div><div class="map-marker charger-marker"><span>⚡</span><label>GreenVolt</label></div><div class="map-marker backup-marker"><span></span><label>NextCharge</label></div></div><div class="charging-list panel"><div class="panel-heading"><h2>Stations nearby</h2><span class="muted-copy">3 found</span></div><div class="station-list full-list"><button class="station-row selected"><span class="station-marker">⚡</span><span class="station-name"><strong>GreenVolt Station</strong><small>12.4 km · 8 min detour</small></span><span class="station-power"><b>150 kW</b><small>4 chargers</small></span></button><button class="station-row"><span class="station-marker muted">↗</span><span class="station-name"><strong>NextCharge</strong><small>18.2 km · 4 min detour</small></span><span class="station-power"><b>60 kW</b><small>2 chargers</small></span></button><button class="station-row unavailable"><span class="station-marker muted">↗</span><span class="station-name"><strong>PowerHub</strong><small>23.7 km · on route</small></span><span class="station-power"><b>120 kW</b><small>Unavailable</small></span></button></div></div></div></section>
+
+        <section id="history-view" class="view" aria-labelledby="history-title"><div class="page-heading"><div><p class="eyebrow">Your journeys</p><h1 id="history-title">Journey history</h1><p class="subheading">A simple record of where your EV has taken you.</p></div></div><div class="history-list panel"><div class="history-row"><span class="history-date">22 SEP</span><div><strong>Hyderabad → Bengaluru</strong><small>105 km · 1 hr 52 min</small></div><span class="history-status done">Completed</span><span class="history-arrow">→</span></div><div class="history-row"><span class="history-date">18 SEP</span><div><strong>Bengaluru → Mysuru</strong><small>143 km · 2 hr 18 min</small></div><span class="history-status done">Completed</span><span class="history-arrow">→</span></div><div class="history-row"><span class="history-date">11 SEP</span><div><strong>Hyderabad → Warangal</strong><small>148 km · 2 hr 05 min</small></div><span class="history-status done">Completed</span><span class="history-arrow">→</span></div></div></section>
+
+        <section id="assistant-view" class="view" aria-labelledby="assistant-title"><div class="page-heading"><div><p class="eyebrow">Contextual EV assistant</p><h1 id="assistant-title">Ask about this journey.</h1><p class="subheading">Answers grounded in your route, battery and current conditions.</p></div></div><div class="assistant-shell panel"><div class="conversation"><div class="message user-message">Can I reach Bengaluru without charging?</div><div class="message assistant-message"><strong>Probably, but I wouldn't recommend it.</strong><p>Your current range is 142 km for a 105 km journey. That makes the trip feasible, but your predicted arrival reserve is only 37 km. Heavy traffic and rain could reduce that margin.</p><div class="assistant-facts"><span>Current range <b>142 km</b></span><span>Journey distance <b>105 km</b></span><span>Safety reserve <b>25 km</b></span></div><button class="primary-button" data-view="dashboard">View recommended charger <span>→</span></button></div></div><div class="assistant-input"><input placeholder="Ask about your journey..." /><button aria-label="Send message">↑</button></div></div></section>
+      </main>
+      <div class="toast" id="toast" role="status">Navigation started · GreenVolt Station</div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
